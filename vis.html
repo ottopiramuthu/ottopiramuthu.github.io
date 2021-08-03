@@ -229,8 +229,8 @@ function update(){
   dots.attr("x", function(d) { return x(d.x); })
     .attr("y", function(d) { return y(d.y); })
     .style("fill", function(d) { return color(d.species); })
-    .attr("width", function(d){ return d[radAttr]; })
-    .attr("height", function(d){ return d[radAttr]; });
+    .attr("width", function(d){ return d[radAttr] * 2; })
+    .attr("height", function(d){ return d[radAttr] * 2; });
 
 }
 
