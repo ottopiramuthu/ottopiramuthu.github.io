@@ -217,19 +217,20 @@ function update(){
   xg.select("text").text(xVar);
   yg.select("text").text(yVar);
 
-  var circles = svg.selectAll(".dot")
+  var dots = svg.selectAll(".dot")
     .data(data);
 
-  circles.enter()
+  dots.enter()
     .append("circle")
     .attr("class", "dot");
 
-  circles.exit().remove();
+  dots.exit().remove();
 
-  circles.attr("cx", function(d) { return x(d.x); })
-    .attr("cy", function(d) { return y(d.y); })
+  dots.attr("x", function(d) { return x(d.x); })
+    .attr("y", function(d) { return y(d.y); })
     .style("fill", function(d) { return color(d.species); })
-    .attr("r", function(d){ return d[radAttr]; });
+    .attr("width", function(d){ return d[radAttr]; })
+    .attr("height", function(d){ return d[radAttr]; });
 
 }
 
